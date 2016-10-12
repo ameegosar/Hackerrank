@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner myScan = new Scanner(System.in);
+        String inputString = myScan.nextLine();
+       boolean a[] = new boolean [128];
+        //int b[] = new int [inputString.length()];
+      //  System.out.println(a[27]);
+        for(int i=0; i<inputString.length(); i++){
+            int val = (int)inputString.charAt(i);
+           // b[i] = val;
+            if(a[val])
+            a[val] = false ;
+            else
+                a[val]=true;
+        }
+        int j=97, count=0;
+       // int f=0;
+        while(count != 2 && j<128 ){
+            //f = b[j];
+            if(a[j]){
+                count++;}
+            j++;
+            //System.out.println(f);
+            //System.out.println(j);
+           //System.out.println(count);
+        }
+        String ans;
+        if((count==1 && inputString.length() %2 !=0) || (count==0 && inputString.length()%2 ==0)){
+         ans = "YES";
+        }
+        else {
+            ans = "NO";
+        }
+        // Assign ans a value of YES or NO, depending on whether or not inputString satisfies the required condition
+        System.out.println(ans);
+        myScan.close();
+    }
+}
